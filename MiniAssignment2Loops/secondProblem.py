@@ -1,5 +1,5 @@
 def patternDiamond():
-    #Left triangle pascal’s pattern
+    #Diamond Pattern
     rows = int(input('Enter number of rows required: '))
 
     k = 2 * rows - 2
