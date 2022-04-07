@@ -1,4 +1,10 @@
+from modules.data.movieData import MovieList
+from modules.data.userData import UserList
+from modules.login import login
+from modules.register import register_user
 
+movies = MovieList()
+users = UserList()
 while True:
     print("******Welcome to BookMyShow*******")
     print("1. Login")
@@ -7,10 +13,15 @@ while True:
 
     inp = input()
     if inp == '1':
-        print("login user method call")
         #login user
+        login(movies, users) #login user method call
+        for i in movies.mlist.values():
+            print(i)
+
     elif inp == '2':
-        print("register user method call")
-        #register user
+        # register user
+
+
+
 
     else: exit(0)
