@@ -57,8 +57,18 @@ def user_login(movies: MovieList, users: UserList):#User Login
                 print(f"{i+1}. {slots[i][0]} has {slots[i][1]} seats")
             inp = int(input()) - 1
             user.book_show(mv, slots[inp][0], int(input("No of Seats = ")))
-        elif inp == 2: pass
-        elif inp == 3: pass
+        elif inp == 2:
+            print("choose timing")
+            slots = mv.get_timings()
+            for i in range(len(slots)):
+                print(f"{i + 1}. {slots[i][0]} has {slots[i][1]} seats")
+            inp = int(input()) - 1
+            user.cancel_show(mv, slots[inp][0], int(input("NO of seats = ")))
+
+        elif inp == 3:
+            user.give_user_rating(int(input("Give a number between 1 to 10 = ")), mv)
+            print("Avg movie rating = ", mv.get_user_rating())
+
         else: break
 
 def admin_login(movies: MovieList):#Admin Login

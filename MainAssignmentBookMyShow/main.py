@@ -20,6 +20,10 @@ while True:
 
     elif inp == '2':
         # register user
+        register_user(movies, users)  # register user method call
+        for i in movies.mlist.values():
+            print(i)
+
 
 
 
