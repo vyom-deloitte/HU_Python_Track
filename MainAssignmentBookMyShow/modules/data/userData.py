@@ -3,16 +3,16 @@ from modules.user import User
 
 class UserList:
     def __init__(self):
-        self.ulist = dict()
+        self.userList = dict()
 
     def __str__(self):
-        return str(set(self.ulist.keys()))
+        return str(set(self.userList.keys()))
 
     def add_user(self, user: User):
-        self.ulist[user.details['email']] = user
+        self.userList[user.details['email']] = user
 
     def delete_user(self, name:str):
         try:
-            self.ulist.pop(name)
+            self.userList.pop(name)
         except:
             print("user not found, deletion unsuccessful")

@@ -1,9 +1,11 @@
 class Movie:
     def __init__(self, title, genre, length, cast, director, rating, language, showcnt, firstShow, interval, gap, cap):
-        self.user_rating = []
+        #constructor that initialises all movie fields
+        self.user_rating = []#list that stores ratings given by users
         self.movie_details = {'title': title, 'genre': genre, 'len': length, 'rating': rating, 'lan': language}
         self.makers = {'cast': cast, 'director': director}
         self.time_slot = dict()
+        #Calculate Timings of all shows for a movie based on First Show, Interval time and Gap between shows
         cur, cnt = firstShow, 0
         while cur <= 24*60 and cnt < showcnt:
             st, en = cur, cur+interval+length
