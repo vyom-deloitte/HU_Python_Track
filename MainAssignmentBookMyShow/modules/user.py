@@ -5,7 +5,7 @@ class User:
     def __init__(self, name, email, phone, age, password):
         self.details = {'name': name, 'email': email, 'phone': phone, 'age': age, 'password': password}
         self.bookings = dict()
-        # self.bookings[movie_name] = {'timeslot': seats}
+
 
     def show_booking_details(self):
         for k, v in self.bookings.items():
@@ -34,7 +34,7 @@ class User:
             if title in self.bookings:
                 if timing in self.bookings[title]: self.bookings[title][timing] += seats
                 else: self.bookings[title][timing] = seats
-            else: self.bookings[title] = {title: seats}
+            else: self.bookings[title] = {timing: seats}
         else:
             print("NOT ENOUGH SEATS IS PRESENT AS PER YOUR REQUIREMENT")
 
@@ -56,3 +56,9 @@ class User:
             if self.bookings[title][timing] == 0: self.bookings[title].pop(timing)
             if len(self.bookings[title]) == 0: self.bookings.pop(title)
             print("Cancellation successful")
+
+    def show_timings(self, title: str):
+        res = list(self.bookings[title].keys())
+        for i in range(len(res)):
+            print(f"{i + 1}. {res[i]}")
+        return res
